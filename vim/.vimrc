@@ -145,3 +145,6 @@ let c_space_errors = 1
 
 highlight SignColumn ctermbg=black
 set runtimepath^=~/.vim/bundle/ctrlp.vim
+
+" Set paste toggle to F2
+set pastetoggle=<F2>
