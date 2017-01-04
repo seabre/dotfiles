@@ -148,3 +148,8 @@ set runtimepath^=~/.vim/bundle/ctrlp.vim
 
 " Set paste toggle to F2
 set pastetoggle=<F2>
+
+" Powerline. Needs powerline support.
+python3 from powerline.vim import setup as powerline_setup
+python3 powerline_setup()
+python3 del powerline_setup

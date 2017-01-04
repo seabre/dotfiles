@@ -86,3 +86,4 @@ source $ZSH/oh-my-zsh.sh
 export PATH="$HOME/.rbenv/bin:$HOME/bin:$PATH"
 eval "$(rbenv init -)"
 alias view-md='view-markdown() { cat $1 | pandoc -f markdown -t html | lynx -stdin };view-markdown'
+function img { for image in "$@"; do convert -thumbnail $(tput cols) "$image" txt:- | awk -F '[)(,]' '!/^#/{gsub(/ /,"");printf"\033[48;2;"$8";"$9";"$10"m "}'; echo -e "\e[0;0m"; done ;}
