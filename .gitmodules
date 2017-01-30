@@ -1,0 +1,4 @@
+[submodule "scripts/bin/git-recall"]
+	path = scripts/bin/git-recall
+	url = git@github.com:seabre/git-recall.git
+	branch = issue/make-git-recall-executable
