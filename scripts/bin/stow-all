@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -e
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+PROGRAMS="$DIR/../../*/"
+PACKAGE_PATH="$DIR/../../"
+
+for i in $PROGRAMS ; do
+  stow -t "$HOME" -d "$PACKAGE_PATH" "$(basename $i)"
+  echo "Configuring $(basename $i)"
+done
+
+echo "Done!"
