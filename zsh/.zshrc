@@ -84,8 +84,11 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export GOPATH="$HOME/go"
-export PATH="$HOME/applications/DataGrip-2017.1.3/bin:$HOME/.rbenv/bin:$HOME/bin:$HOME/bin/git-recall:$GOPATH/bin:$PATH"
+export PATH="$HOME/miniconda2/bin:$HOME/applications/access2csv/target/appassembler/bin:$HOME/applications/DataGrip-2017.1.3/bin:$HOME/.rbenv/bin:$HOME/bin:$HOME/bin/git-recall:$GOPATH/bin:$PATH"
 eval "$(rbenv init -)"
 alias view-md='view-markdown() { cat $1 | pandoc -f markdown -t html | lynx -stdin };view-markdown'
 alias simple-server='python -m SimpleHTTPServer'
 function img { for image in "$@"; do convert -thumbnail $(tput cols) "$image" txt:- | awk -F '[)(,]' '!/^#/{gsub(/ /,"");printf"\033[48;2;"$8";"$9";"$10"m "}'; echo -e "\e[0;0m"; done ;}
+
+# Show git file change history. Also works with directories
+alias gfh='git log --all --name-status -- '
