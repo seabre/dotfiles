@@ -2,3 +2,7 @@
 	path = scripts/bin/git-recall
 	url = git@github.com:seabre/git-recall.git
 	branch = issue/make-git-recall-executable
+[submodule "scripts/bin/wireless-info"]
+	path = scripts/bin/wireless-info
+	url = https://github.com/UbuntuForums/wireless-info
+	branch = master
