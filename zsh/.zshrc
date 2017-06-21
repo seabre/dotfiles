@@ -84,7 +84,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export GOPATH="$HOME/go"
-export PATH="$HOME/miniconda2/bin:$HOME/applications/access2csv/target/appassembler/bin:$HOME/applications/DataGrip-2017.1.3/bin:$HOME/.rbenv/bin:$HOME/bin:$HOME/bin/git-recall:$GOPATH/bin:$PATH"
+export PATH="$HOME/miniconda2/bin:$HOME/applications/access2csv/target/appassembler/bin:$HOME/applications/DataGrip-2017.1.3/bin:$HOME/.rbenv/bin:$HOME/bin:$HOME/bin/git-recall:$HOME/bin/wireless-info:$GOPATH/bin:$PATH"
 eval "$(rbenv init -)"
 alias view-md='view-markdown() { cat $1 | pandoc -f markdown -t html | lynx -stdin };view-markdown'
 alias simple-server='python -m SimpleHTTPServer'
