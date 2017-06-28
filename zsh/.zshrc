@@ -89,6 +89,7 @@ eval "$(rbenv init -)"
 alias view-md='view-markdown() { cat $1 | pandoc -f markdown -t html | lynx -stdin };view-markdown'
 alias simple-server='python -m SimpleHTTPServer'
 function img { for image in "$@"; do convert -thumbnail $(tput cols) "$image" txt:- | awk -F '[)(,]' '!/^#/{gsub(/ /,"");printf"\033[48;2;"$8";"$9";"$10"m "}'; echo -e "\e[0;0m"; done ;}
+function extract-palette() { convert "$1" -resize 300x -dither None -colors "$2" txt: | tail -n +2 | awk -F '  ' '{ if (!seen[$2]++) print $2 }'; }
 
 # Show git file change history. Also works with directories
 alias gfh='git log --all --name-status -- '
