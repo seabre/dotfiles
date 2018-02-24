@@ -84,12 +84,24 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export GOPATH="$HOME/go"
-export PATH="$HOME/miniconda2/bin:$HOME/applications/access2csv/target/appassembler/bin:$HOME/applications/DataGrip-2017.1.3/bin:$HOME/.rbenv/bin:$HOME/bin:$HOME/bin/git-recall:$HOME/bin/wireless-info:$GOPATH/bin:$PATH"
+export PATH="$HOME/miniconda2/bin:$HOME/applications/access2csv/target/appassembler/bin:$HOME/applications/DataGrip-2017.1.3/bin:$HOME/.rbenv/bin:$HOME/bin:$HOME/bin/git-recall:$HOME/bin/wireless-info:$GOPATH/bin:$HOME/.config/npm/node_modules/bin:$PATH"
 eval "$(rbenv init -)"
 alias view-md='view-markdown() { cat $1 | pandoc -f markdown -t html | lynx -stdin };view-markdown'
 alias simple-server='python -m SimpleHTTPServer'
+
+# rubocop run on current commit
+alias rcc='git diff --name-only HEAD | grep '\.rb$' | xargs bundle exec rubocop'
+
 function img { for image in "$@"; do convert -thumbnail $(tput cols) "$image" txt:- | awk -F '[)(,]' '!/^#/{gsub(/ /,"");printf"\033[48;2;"$8";"$9";"$10"m "}'; echo -e "\e[0;0m"; done ;}
 function extract-palette() { convert "$1" -resize 300x -dither None -colors "$2" txt: | tail -n +2 | awk -F '  ' '{ if (!seen[$2]++) print $2 }'; }
 
 # Show git file change history. Also works with directories
 alias gfh='git log --all --name-status -- '
+
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/home/seabre/lib
+# Compile flags sometimes needed
+#export LDFLAGS="-L/home/seabre/lib"
+#export CFLAGS="-I/home/seabre/include"
+export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+
+PATH="/home/seabre/bin/terminus/vendor/bin:$PATH"
